@@ -228,7 +228,7 @@ public class CountDownLatch {
      *         while waiting
      */
     public void await() throws InterruptedException {
-        sync.acquireSharedInterruptibly(1);//ts:get resource
+        sync.acquireSharedInterruptibly(1);
     }
 
     /**
