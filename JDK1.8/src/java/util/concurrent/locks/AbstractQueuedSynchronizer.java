@@ -1298,9 +1298,9 @@ public abstract class AbstractQueuedSynchronizer
      */
     public final void acquireSharedInterruptibly(int arg)
             throws InterruptedException {
-        if (Thread.interrupted())
+        if (Thread.interrupted())//ts:check whether this thread is interrupted before.
             throw new InterruptedException();
-        if (tryAcquireShared(arg) < 0)
+        if (tryAcquireShared(arg) < 0)//ts: -1 means u can wait for resource
             doAcquireSharedInterruptibly(arg);
     }
 

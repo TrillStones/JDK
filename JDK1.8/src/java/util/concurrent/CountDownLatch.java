@@ -170,7 +170,7 @@ public class CountDownLatch {
         }
 
         protected int tryAcquireShared(int acquires) {
-            return (getState() == 0) ? 1 : -1;
+            return (getState() == 0) ? 1 : -1; // state that equals to 0 means u cannot get resource anymore
         }
 
         protected boolean tryReleaseShared(int releases) {
@@ -288,7 +288,7 @@ public class CountDownLatch {
      * <p>If the current count equals zero then nothing happens.
      */
     public void countDown() {
-        sync.releaseShared(1);
+        sync.releaseShared(1);//ts:countDown correspond to release resource
     }
 
     /**
