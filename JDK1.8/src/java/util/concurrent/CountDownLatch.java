@@ -170,7 +170,7 @@ public class CountDownLatch {
         }
 
         protected int tryAcquireShared(int acquires) {
-            return (getState() == 0) ? 1 : -1; // state that equals to 0 means u cannot get resource anymore
+            return (getState() == 0) ? 1 : -1; // state that equals to 0 means u cannot get resource anymore.其他线程已经countDown() 导致state = 0,此时,await()可以直接通过，不需要再等待了。
         }
 
         protected boolean tryReleaseShared(int releases) {
