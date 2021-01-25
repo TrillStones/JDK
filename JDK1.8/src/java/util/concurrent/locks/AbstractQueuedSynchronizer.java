@@ -626,7 +626,7 @@ public abstract class AbstractQueuedSynchronizer
      */
     private void setHead(Node node) {
         head = node;
-        node.thread = null;
+        node.thread = null;//todo ts:why set it null.
         node.prev = null;
     }
 
